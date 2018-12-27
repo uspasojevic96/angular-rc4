@@ -5,7 +5,15 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText();
+  getInitialText() {
+    return element(by.id('1')).getText();
+  }
+
+  getEncryptedText() {
+    return element(by.id('2')).getText();
+  }
+
+  getDecryptedText() {
+    return element(by.id('3')).getText();
   }
 }
