@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { TaggifyPipe } from './taggify.pipe';
+import {RC4Service} from './rc4.service';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   exports: [
-    TaggifyPipe,
   ],
   declarations: [
-    TaggifyPipe,
   ],
-  providers: [],
+  providers: [
+    RC4Service
+  ],
 })
-export class TaggifyModule { }
+export class RC4Module { }

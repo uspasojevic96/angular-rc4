@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import {Component, ViewEncapsulation, ViewChild, OnInit} from '@angular/core';
+import {RC4Service} from '../../src';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,13 @@ import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent { }
+export class AppComponent implements OnInit{
+  constructor(private rc4: RC4Service){
+
+  }
+
+  public ngOnInit(): void {
+    console.log(this.rc4.RC4('hello', 'x>ÍÏ'));
+  }
+}
+

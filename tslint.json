@@ -42,7 +42,6 @@
       }
     ],
     "no-arg": true,
-    "no-bitwise": true,
     "no-console": [
       true,
       "debug",
@@ -80,7 +79,6 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
     "quotemark": [
       true,
       "single"
