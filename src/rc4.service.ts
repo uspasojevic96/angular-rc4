@@ -11,6 +11,7 @@ export class RC4Service {
 
   private initialize(): void {
     let i = 0;
+    this.S = [];
 
     while (i < this.N) {
       this.S.push(i++);
