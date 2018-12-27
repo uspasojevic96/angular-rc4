@@ -1,14 +1,38 @@
+/**
+ * RC4 encryption/decryption service
+ *
+ * @author Uros Spasojevic
+ */
 import {Injectable} from '@angular/core';
 
 @Injectable()
 export class RC4Service {
+  /**
+   * @private
+   *
+   * @property {number[]} S Stream array
+   */
   private S: number[] = [];
-  private cipherText: any[];
+
+  /**
+   * @private
+   *
+   * @property {number[]} cipherText Integer representation of each character after encryption/decryption
+   */
+  private cipherText: number[];
+
+  /**
+   * @private
+   *
+   * @property {number} N RC4 number of bytes
+   */
   private N = 256;
 
-  constructor() {
-  }
-
+  /**
+   * @private
+   *
+   * Initializes the RC4
+   */
   private initialize(): void {
     let i = 0;
     this.S = [];
@@ -18,6 +42,13 @@ export class RC4Service {
     }
   }
 
+  /**
+   * @private
+   *
+   * Key-scheduling algorithm
+   *
+   * @param {string} key Encryption/decryption key
+   */
   private KSA(key: string): void {
     let keyLength = key.length;
     let i = 0;
@@ -32,7 +63,14 @@ export class RC4Service {
     }
   }
 
-  private PRGA(plainText: string) {
+  /**
+   * @private
+   *
+   * Pseudo-random generation algorithm
+   *
+   * @param {string} plainText Text to be encrypted/decrypted
+   */
+  private PRGA(plainText: string): void {
     let i = 0;
     let j = 0;
     let n = 0;
@@ -50,12 +88,29 @@ export class RC4Service {
     }
   }
 
+  /**
+   * @private
+   *
+   * Swaps two elements in stream array
+   *
+   * @param {number} firstIndex Index of first element
+   * @param {number} secondIndex Index of second element
+   */
   private swap(firstIndex: number, secondIndex: number): void {
     let tmp = this.S[firstIndex];
     this.S[firstIndex] = this.S[secondIndex];
     this.S[secondIndex] = tmp;
   }
 
+  /**
+   * @public
+   *
+   * RC4 encryption/decryption
+   *
+   * @param {string} key Encryption/decryption key
+   * @param {string} plainText Text to be encrypted/decrypted
+   * @returns {string}
+   */
   public RC4(key: string, plainText: string): string {
     this.cipherText = new Array<number>(plainText.length);
     this.initialize();
