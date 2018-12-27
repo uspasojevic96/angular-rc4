@@ -7,8 +7,8 @@ import {RC4Service} from '../../src';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit{
-  constructor(private rc4: RC4Service){
+export class AppComponent implements OnInit {
+  constructor(private rc4: RC4Service) {
 
   }
 
